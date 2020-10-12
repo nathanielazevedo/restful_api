@@ -18,6 +18,14 @@ connect_db(app)
 db.create_all()
 
 
+
+
+@app.route('/')
+def homepage():
+    '''Main form'''
+    cupcakes = Cupcake.query.all()
+    return render_template('homepage.html', cupcakes=cupcakes)
+
 def serialize_cupcake(cupcake):
     """Serialize a cupcake SQLAlchemy obj to dictionary."""
 
